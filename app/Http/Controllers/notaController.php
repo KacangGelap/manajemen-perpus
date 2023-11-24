@@ -13,7 +13,7 @@ class notaController extends Controller
      */
     public function index()
     {
-        $nota = DB::select('SELECT * FROM allnota');
+        $nota = DB::select('CALL GetAllData()');
         return response()->json(['data'=>$nota], 200, [], JSON_PRETTY_PRINT);
     }
 
@@ -76,7 +76,7 @@ class notaController extends Controller
      */
     public function show(string $id)
     {
-        $nota = DB::select('CALL GetAllData('.$id.')');
+        $nota = DB::select('CALL GetAllDataById('.$id.')');
         return response()->json(['data'=>$nota], 200, [], JSON_PRETTY_PRINT);
     }
 

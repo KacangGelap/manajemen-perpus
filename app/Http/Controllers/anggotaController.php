@@ -12,7 +12,7 @@ class anggotaController extends Controller
      */
     public function index()
     {
-        $data = DB::select('SELECT * FROM anggotaAll');
+        $data = DB::select('CALL GetAnggota()');
         return response()->json(['data'=>$data], 200, [], JSON_PRETTY_PRINT);
     }
 
@@ -48,7 +48,7 @@ class anggotaController extends Controller
      */
     public function show($id)
     {
-        $data = DB::select('SELECT * FROM anggotaAll WHERE id ='.$id);
+        $data = DB::select('CALL GetAnggotaById('.$id.')');
         return response()->json(['data'=>$data], 200, [], JSON_PRETTY_PRINT);
     }
 

@@ -12,7 +12,7 @@ class bukuController extends Controller
      */
     public function index()
     {
-        $data = DB::select('SELECT * FROM bukuAll');
+        $data = DB::select('CALL GetBuku()');
         return response()->json(['data'=>$data], 200, [], JSON_PRETTY_PRINT);
     }
 
@@ -49,7 +49,7 @@ class bukuController extends Controller
      */
     public function show(string $id)
     {
-        $data = DB::select('SELECT * FROM bukuAll WHERE ISBN ='.$id);
+        $data = DB::select('CALL GetBukuById('.$id.')');
         return response()->json(['data'=>$data], 200, [], JSON_PRETTY_PRINT);
     }
 
